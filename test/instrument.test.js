@@ -9,8 +9,8 @@ describe('test/instrument.test.js', () => {
     mm.env('local');
     app = mm.cluster({
       baseDir: 'apps/instrument',
+      cache: false,
     });
-    app.debug();
     return app.ready();
   });
   after(() => app.close());
@@ -22,7 +22,7 @@ describe('test/instrument.test.js', () => {
       .expect('done')
       .expect(200);
 
-    app.expect('stdout', /\[context] action \d+ms/);
+    app.expect('stdout', /\[context] action \d+/);
   });
 
   it('should call app.instrument', function* () {

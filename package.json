@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Compute the duration of an operation in local environment",
   "eggPlugin": {
-    "name": "instrument",
-    "env": [ "local" ]
+    "name": "instrument"
   },
   "keywords": [
     "egg",
