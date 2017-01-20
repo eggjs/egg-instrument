@@ -1,0 +1,56 @@
+{
+  "name": "egg-instrument",
+  "version": "1.0.0",
+  "description": "Compute the duration of an operation in local environment",
+  "eggPlugin": {
+    "name": "instrument",
+    "env": [ "local" ]
+  },
+  "keywords": [
+    "egg",
+    "eggPlugin",
+    "egg-plugin"
+  ],
+  "dependencies": {
+    "ms": "^0.7.2"
+  },
+  "devDependencies": {
+    "autod": "^2.7.1",
+    "egg": "^0.8.0",
+    "egg-bin": "^2.0.1",
+    "egg-ci": "^1.1.0",
+    "egg-mock": "^2.1.0",
+    "eslint": "^3.13.1",
+    "eslint-config-egg": "^3.2.0",
+    "supertest": "^2.0.1",
+    "webstorm-disable-index": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "files": [
+    "app",
+    "lib"
+  ],
+  "ci": {
+    "version": "6, 7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggjs/egg-instrument.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eggjs/egg/issues"
+  },
+  "homepage": "https://github.com/eggjs/egg-instrument#readme",
+  "author": "popomore <sakura9515@gmail.com>",
+  "license": "MIT"
+}
