@@ -3,7 +3,7 @@
 const request = require('supertest');
 const mm = require('egg-mock');
 
-describe('test/instrument.test.js', () => {
+describe('test/instrument_env.test.js', () => {
   let app;
   before(() => {
     mm.env('default');
@@ -16,14 +16,30 @@ describe('test/instrument.test.js', () => {
   after(() => app.close());
   afterEach(mm.restore);
 
-
   it('should call ctx.instrument but no info', function* () {
     yield request(app.callback())
       .get('/context-instrument')
       .expect('done')
       .expect(200);
 
-    app.notExpect('stdout', /\[context] action \d+ms/);
+    app.notExpect('stdout', /\[context] action \d+/);
   });
 
+  it('should call app.instrument but no info', function* () {
+    yield request(app.callback())
+      .get('/app-instrument')
+      .expect('done')
+      .expect(200);
+
+    app.notExpect('stdout', /\[app] action \d+/);
+  });
+
+  it('should call agent.instrument but no info', function* () {
+    yield request(app.callback())
+      .get('/agent-instrument')
+      .expect('done')
+      .expect(200);
+
+    app.notExpect('stdout', /\[agent] action \d+/);
+  });
 });

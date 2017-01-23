@@ -1,6 +1,7 @@
 'use strict';
 
 const Instrument = require('../../lib/instrument');
+const noopInstrument = require('../../lib/noop_instrument');
 
 module.exports = {
   /**
@@ -14,11 +15,9 @@ module.exports = {
    */
   instrument(event, action) {
     if (this.app.config.env !== 'local') {
-      return {
-        end() {},
-      };
+      return noopInstrument;
     }
-    const ins = new Instrument(this);
+    const ins = new Instrument(this.logger);
     ins.start(event, action);
     return ins;
   },

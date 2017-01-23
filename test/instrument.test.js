@@ -31,7 +31,7 @@ describe('test/instrument.test.js', () => {
       .expect('done')
       .expect(200);
 
-    app.expect('stdout', /\[app] action \d+ms/);
+    app.expect('stdout', /\[app] action \d+/);
   });
 
   it('should call agent.instrument', function* () {
@@ -40,6 +40,6 @@ describe('test/instrument.test.js', () => {
       .expect('done')
       .expect(200);
 
-    app.expect('stdout', /\[agent] action \d+ms/);
+    app.expect('stdout', /\[agent] action \d+/);
   });
 });

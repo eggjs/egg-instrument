@@ -44,7 +44,7 @@ Instrument can calculate the duration of an operation, for example
 // app/controller/home.js
 exports.index = function* (ctx) {
   const ins = ctx.instrument('service', 'home.getData');
-  const data = ctx.service.home.getData();
+  const data = yield ctx.service.home.getData();
   ins.end();
   ctx.body = data;
 };
