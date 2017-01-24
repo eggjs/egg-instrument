@@ -58,6 +58,10 @@ Then you can see the infomation in console
 
 If you are not in context level, you can use `app.instrument` or `agent.instrument`.
 
+## Configuration
+
+see [config/config.default.js](config/config.default.js) for more detail.
+
 ## Questions & Suggestions
 
 Please open an issue [here](https://github.com/eggjs/egg/issues).

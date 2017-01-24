@@ -2,6 +2,7 @@
 
 const Instrument = require('../../lib/instrument');
 const noopInstrument = require('../../lib/noop_instrument');
+const RUNTIME = require('../../lib/constant').RUNTIME;
 
 module.exports = {
   /**
@@ -17,7 +18,10 @@ module.exports = {
     if (this.app.config.env !== 'local') {
       return noopInstrument;
     }
-    const ins = new Instrument(this.logger);
+    if (!this[RUNTIME]) {
+      this[RUNTIME] = new Map();
+    }
+    const ins = new Instrument(this.logger, this[RUNTIME]);
     ins.start(event, action);
     return ins;
   },
