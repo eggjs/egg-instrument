@@ -1,6 +1,5 @@
 'use strict';
 
-const request = require('supertest');
 const mm = require('egg-mock');
 
 describe('test/instrument_env.test.js', () => {
@@ -17,7 +16,7 @@ describe('test/instrument_env.test.js', () => {
   afterEach(mm.restore);
 
   it('should call ctx.instrument but no info', function* () {
-    yield request(app.callback())
+    yield app.httpRequest(app.callback())
       .get('/context-instrument')
       .expect('done')
       .expect(200);
@@ -26,7 +25,7 @@ describe('test/instrument_env.test.js', () => {
   });
 
   it('should call app.instrument but no info', function* () {
-    yield request(app.callback())
+    yield app.httpRequest(app.callback())
       .get('/app-instrument')
       .expect('done')
       .expect(200);
@@ -35,7 +34,7 @@ describe('test/instrument_env.test.js', () => {
   });
 
   it('should call agent.instrument but no info', function* () {
-    yield request(app.callback())
+    yield app.httpRequest(app.callback())
       .get('/agent-instrument')
       .expect('done')
       .expect(200);

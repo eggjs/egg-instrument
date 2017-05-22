@@ -1,6 +1,5 @@
 'use strict';
 
-const request = require('supertest');
 const mm = require('egg-mock');
 
 describe('test/instrument.test.js', () => {
@@ -19,7 +18,7 @@ describe('test/instrument.test.js', () => {
     after(() => app.close());
 
     it('should not inject middleware', function* () {
-      yield request(app.callback())
+      yield app.httpRequest(app.callback())
       .get('/runtime')
       .expect(200)
       .expect('done');
@@ -41,7 +40,7 @@ describe('test/instrument.test.js', () => {
     after(() => app.close());
 
     it('should log for every request', function* () {
-      yield request(app.callback())
+      yield app.httpRequest(app.callback())
       .get('/runtime')
       .expect(200)
       .expect('done');
@@ -50,7 +49,7 @@ describe('test/instrument.test.js', () => {
     });
 
     it('should log for event', function* () {
-      yield request(app.callback())
+      yield app.httpRequest(app.callback())
       .get('/event')
       .expect(200)
       .expect('done');
@@ -72,7 +71,7 @@ describe('test/instrument.test.js', () => {
     after(() => app.close());
 
     it('should not log', function* () {
-      yield request(app.callback())
+      yield app.httpRequest(app.callback())
       .get('/runtime')
       .expect(200)
       .expect('done');
