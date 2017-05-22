@@ -11,7 +11,7 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "ms": "^0.7.2"
+    "ms": "^2.0.0"
   },
   "devDependencies": {
     "autod": "^2.7.1",
