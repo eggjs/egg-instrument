@@ -60,7 +60,7 @@ If you are not in context level, you can use `app.instrument` or `agent.instrume
 
 ## Configuration
 
-see [config/config.default.js](config/config.default.js) for more detail.
+see [config/config.default.js](https://github.com/eggjs/egg-instrument/blob/master/config/config.default.js) for more detail.
 
 ## Questions & Suggestions
 
