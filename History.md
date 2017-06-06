@@ -1,4 +1,11 @@
 
+1.1.1 / 2017-06-06
+==================
+
+  * docs: use full url (#7)
+  * deps: upgrade dependencies (#6)
+  * [Snyk Update] New fixes for 1 vulnerable dependency path (#5)
+
 1.1.0 / 2017-01-24
 ==================
 
