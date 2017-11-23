@@ -1,4 +1,10 @@
 
+2.0.0 / 2017-11-23
+==================
+
+**others**
+  * [[`870600d`](http://github.com/eggjs/egg-instrument/commit/870600d2367a40e19fc8e4117c8690e70a7f7681)] -  refactor: use async function and support egg@2 (#8) (Yiyu He <<dead_horse@qq.com>>)
+
 1.1.1 / 2017-06-06
 ==================
 
