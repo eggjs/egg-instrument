@@ -4,17 +4,16 @@ const ms = require('ms');
 const RUNTIME = require('../../lib/constant').RUNTIME;
 
 module.exports = () => {
-  return function* (next) {
-    yield next;
+  return async function instrument(ctx, next) {
+    await next();
 
     const runtimes = [];
-    runtimes.push(`rt: ${ms(Date.now() - this.starttime)}`);
-    if (this[RUNTIME]) {
-      for (const [ event, duration ] of this[RUNTIME].entries()) {
-        console.log(event, duration);
+    runtimes.push(`rt: ${ms(Date.now() - ctx.starttime)}`);
+    if (ctx[RUNTIME]) {
+      for (const [ event, duration ] of ctx[RUNTIME].entries()) {
         runtimes.push(`${event}: ${ms(duration)}`);
       }
     }
-    this.logger.info(`status ${this.status} (${runtimes.join(', ')})`);
+    ctx.logger.info(`status ${ctx.status} (${runtimes.join(', ')})`);
   };
 };

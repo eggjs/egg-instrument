@@ -19,9 +19,9 @@ describe('test/instrument.test.js', () => {
 
     it('should not inject middleware', function* () {
       yield app.httpRequest(app.callback())
-      .get('/runtime')
-      .expect(200)
-      .expect('done');
+        .get('/runtime')
+        .expect(200)
+        .expect('done');
 
       app.notExpect('stdout', /status 200 \(rt:/);
     });
@@ -41,18 +41,18 @@ describe('test/instrument.test.js', () => {
 
     it('should log for every request', function* () {
       yield app.httpRequest(app.callback())
-      .get('/runtime')
-      .expect(200)
-      .expect('done');
+        .get('/runtime')
+        .expect(200)
+        .expect('done');
 
       app.expect('stdout', /status 200 \(rt: \d+ms\)/);
     });
 
     it('should log for event', function* () {
       yield app.httpRequest(app.callback())
-      .get('/event')
-      .expect(200)
-      .expect('done');
+        .get('/event')
+        .expect(200)
+        .expect('done');
 
       app.expect('stdout', /\/event] status 200 \(rt: 3s, event1: 3s, event2: 3s\)/);
     });
@@ -72,9 +72,9 @@ describe('test/instrument.test.js', () => {
 
     it('should not log', function* () {
       yield app.httpRequest(app.callback())
-      .get('/runtime')
-      .expect(200)
-      .expect('done');
+        .get('/runtime')
+        .expect(200)
+        .expect('done');
 
       app.notExpect('stdout', /status 200 \(rt:/);
     });
